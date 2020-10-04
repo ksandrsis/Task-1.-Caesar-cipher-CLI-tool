@@ -7,7 +7,7 @@ const chalk = require('chalk')
 
 const moduleCaersar = require('./utils/caesar')
 
-const processExitWithError = (text) => {
+const processExitWithError = (text: string) => {
     process.exitCode = 1
     console.error(text)
 }
@@ -72,8 +72,8 @@ async function runWithInput(input: string, shift: number) {
             }
         },
         ).catch(() => processExitWithError('Something go wrong with reading file')):
-        processExitWithError(`Input fife doesn't exist`)
-    console.log(chalk.yellowBright('Here you are - '), chalk.red(ans))
+        processExitWithError(`Input file doesn't exist`)
+    ans && console.log(chalk.yellowBright('Here you are - '), chalk.red(ans))
 }
 
 exports.runWithBoth = runWithBoth
