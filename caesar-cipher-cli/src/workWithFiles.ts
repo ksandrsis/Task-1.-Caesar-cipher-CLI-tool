@@ -7,6 +7,10 @@ const chalk = require('chalk')
 
 const moduleCaersar = require('./utils/caesar')
 
+const processExitWithError = (text) => {
+    process.exitCode = 1
+    console.error(text)
+}
 
 async function runWithBoth(input: string , output: string, shift: number) {
 
@@ -32,8 +36,9 @@ async function runWithBoth(input: string , output: string, shift: number) {
             yield '\n'
         },
         fs.createWriteStream(output,{flags: 'a+'}),
-        ).catch(() => console.error('Something go wrong with reading or writing files'))
-        : console.error(`Output or Input fife doesn't exist`)
+        ).catch(() => processExitWithError('Something go wrong with reading or writing files'))
+        :  processExitWithError(`Output or Input fife doesn't exist`)
+
 }
 
 async function runWithOutput(output: string, text: string) {
@@ -46,8 +51,8 @@ async function runWithOutput(output: string, text: string) {
     outputFileExists ? await asyncPipeline(
         Readable.from(`${text} \n`),
         fs.createWriteStream(output,{flags: 'a+'}),
-    ).catch(() => console.error('Something go wrong with writing file')):
-        console.error(`Output fife doesn't exist`)
+    ).catch(() => processExitWithError('Something go wrong with writing file')):
+        processExitWithError(`Output fife doesn't exist`)
 }
 
 async function runWithInput(input: string, shift: number) {
@@ -66,8 +71,8 @@ async function runWithInput(input: string, shift: number) {
                 ans += moduleCaersar.pasre(chunk, shift);
             }
         },
-        ).catch(() => console.error('Something go wrong with reading file')):
-        console.error(`Input fife doesn't exist`)
+        ).catch(() => processExitWithError('Something go wrong with reading file')):
+        processExitWithError(`Input fife doesn't exist`)
     console.log(chalk.yellowBright('Here you are - '), chalk.red(ans))
 }
 

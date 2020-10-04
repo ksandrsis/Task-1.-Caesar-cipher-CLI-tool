@@ -6,7 +6,7 @@
   "scripts": {
     "start:dev": "nodemon --action encode --shift 1 --input plain.txt --output encoded.txt",
     "build:dev": "rimraf ./build && tsc -w",
-    "build": "rimraf ./build && tsc"
+    "build": "rimraf ./build && tsc",
   },
   "repository": {
     "type": "git",
