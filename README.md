@@ -1,9 +1,8 @@
 # Task-1.-Caesar-cipher-CLI-tool
 
 ## How to start
-1. clone this repo
+1. ```git clone https://github.com/ksandrsis/Task-1.-Caesar-cipher-CLI-tool.git```
 1. ``` cd caesar-cipher-cli```
-1. switch branch to develop
 1. ``` npm i```
 1. ``` npm run build```
 1. Done!
