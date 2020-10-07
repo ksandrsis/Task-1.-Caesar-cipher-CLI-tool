@@ -1,6 +1,8 @@
 # Task-1.-Caesar-cipher-CLI-tool
 
+
 ## How to start
+1. work only on node.js version 14.13.0 (my mistake, you can rate it by checking the version specified in the assignment) 
 1. ```git clone https://github.com/ksandrsis/Task-1.-Caesar-cipher-CLI-tool.git```
 1. ```cd Task-1.-Caesar-cipher-CLI-tool```
 1. ``` cd caesar-cipher-cli```
